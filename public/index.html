@@ -44,12 +44,12 @@
         var BUTTON_UP     = isTouchDevice ? "touchend"   : "mouseup";
         
         $("button").bind(BUTTON_DOWN,function(){
-            $.post("/cmd",this.id,function(data,status){
+            $.post("/cmd",{cmd: this.id},function(data,status){
             });
         });
 
         $("button").bind(BUTTON_UP,function(){
-            $.post("/cmd","stop",function(data,status){
+            $.post("/cmd",{ cmd: "stop"},function(data,status){
             });
         });
         
@@ -74,7 +74,7 @@
     </div>
     <div id="container" class="container" align="center">
         <div style="width:60%; height:40px; line-height:40px; text-align:center; font-size:20px; color:white; background-color:blue; margin:auto">
-        AlphaBot Robot Web Control
+        Joe's Yardbot Control
         </div><br><br>
     
         <script>
@@ -86,8 +86,10 @@
         
         <table align="center">
             <tr>
-                <td align="center"><b>Motor Contrl</b></td>
-                <!-- <td align="center"><b>Servo Contrl</b></td> -->
+                <td align="center"><b>Base</b></td>
+                <td align="center"><b>Boom</b></td> 
+                <td align="center"><b>Bucket</b></td>
+
             </tr>
             <tr>
                 <td>
@@ -103,19 +105,19 @@
                         <button id='backward' class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-down"></button>
                     </div>
                 </td>
-                <!-- <td> -->
-                    <!-- <div align="center"> -->
-                        <!-- <button id="up" class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-up"></button> -->
-                    <!-- </div> -->
-                    <!-- <div align="center"> -->
-                        <!-- <button id='left' class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-left"></button> -->
+                <td> 
+                    <div align="center">
+                       <button id="boomup" class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-up"></button> 
+                     </div> 
+                    <div align="center"> 
+                         <button id='bucketin' class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-left"></button> 
                 
-                        <!-- <button id='right' class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-right"></button> -->
-                    <!-- </div align="center"> -->
-                    <!-- <div align="center"> -->
-                        <!-- <button id='down' class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-down"></button> -->
-                    <!-- </div> -->
-                <!-- </td> -->
+                         <button id='bucketout' class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-right"></button
+                     </div align="center"> 
+                     <div align="center"> 
+                        <button id='boomdown' class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-down"></button> 
+                     </div> 
+                 </td>
             </tr>
         </table>
         <input type="range" min="20" max="100", style="width:300px";>
